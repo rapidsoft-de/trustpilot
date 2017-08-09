@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f83e05a-6413-4c1f-8269-14d5b6fb3e8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php" afterPath="$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php" />
-    </list>
+    <list default="true" id="5f83e05a-6413-4c1f-8269-14d5b6fb3e8c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,8 +78,8 @@
       <file leaf-file-name="BusinessUnit.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="177" column="58" lean-forward="true" selection-start-line="177" selection-start-column="58" selection-end-line="177" selection-end-column="58" />
+            <state relative-caret-position="-82">
+              <caret line="154" column="15" lean-forward="true" selection-start-line="154" selection-start-column="15" selection-end-line="154" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -259,12 +256,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502283400304</updated>
-      <workItem from="1502283401555" duration="6376000" />
+      <workItem from="1502283401555" duration="6407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6376000" />
+    <option name="totallyTimeSpent" value="6407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -396,8 +393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="177" column="58" lean-forward="true" selection-start-line="177" selection-start-column="58" selection-end-line="177" selection-end-column="58" />
+        <state relative-caret-position="-82">
+          <caret line="154" column="15" lean-forward="true" selection-start-line="154" selection-start-column="15" selection-end-line="154" selection-end-column="15" />
           <folding />
         </state>
       </provider>
