@@ -14,19 +14,19 @@ namespace TrustPilot\Api;
  * @author Graphem Solutions <info@graphem.ca>
  */
 
-use TrustPilot\TrustPilot;
 use Carbon\Carbon;
 
 class Invitation extends AbstractApi{
   
 
     /**
-     * This API endpoint triggers an email invitation. Use the redirect parameter 
-     * to pass in a product review invitation link. preferredSendTime 
+     * This API endpoint triggers an email invitation. Use the redirect parameter
+     * to pass in a product review invitation link. preferredSendTime
      * must be in UTC if specified.
      *
-     * @param  
-     * @return 
+     * @param string $businessUnitId
+     * @param array $data
+     * @return mixed
      */
     public function createInvitation($businessUnitId, $data)
     {
@@ -37,26 +37,27 @@ class Invitation extends AbstractApi{
             $this->api->post('private/business-units/'. $businessUnitId .'/invitations',array('json' => $data)));
     }
 
-
     /**
-     * Get list of invitation templates 
-     * Retiurns a list of ID and Names of the templates available to be used in invitations. 
+     * Get list of invitation templates
+     * Returns a list of ID and Names of the templates available to be used in invitations.
      * Includes both standard and custom templates.
      *
-     * @param  
-     * @return 
+     * @param string $businessUnitId
+     * @return mixed
      */
     public function getInvitationTemplates($businessUnitId)
     {
         return json_decode(
-            $this->api->get('private/business-units/'. $businessUnitId .'/templates'));   
+            $this->api->get('private/business-units/'. $businessUnitId .'/templates'));
     }
 
     /**
      * Renders preview of custom template
      *
-     * @param  
-     * @return 
+     * @param string $businessUnitId
+     * @param string $templateId
+     * @param array $data
+     * @return mixed
      */
     public function renderPreview($businessUnitId, $templateId, $data)
     {
@@ -77,12 +78,13 @@ class Invitation extends AbstractApi{
 
     /**
      * Generate service review invitation link
-     * Generate a unique invitation link that can be sent to a consumer by email or website. 
+     * Generate a unique invitation link that can be sent to a consumer by email or website.
      * Use the request parameter called redirectURI to take the user
      * to a product review link after the user has left a service review.
      *
-     * @param  
-     * @return 
+     * @param string $businessUnitId
+     * @param array $data
+     * @return string
      */
     public function generateInvitationLink($businessUnitId, $data)
     {

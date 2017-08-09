@@ -14,27 +14,25 @@ namespace TrustPilot\Api;
  * @author Graphem Solutions <info@graphem.ca>
  */
 
-use TrustPilot\TrustPilot;
 use Carbon\Carbon;
 
 class Authorize extends AbstractApi{
 
     
     /**
-     * @var String
+     * @var string
      */
     protected $token;
 
     /**
-     * @var String
+     * @var string
      */
     protected $type_settings;
 
     /**
      * Set the token
      *
-     * @param  string
-     * @return string
+     * @param string $token
      */
     public function setToken($token = '')
     {
@@ -42,10 +40,9 @@ class Authorize extends AbstractApi{
     }
 
     /**
-     * Get the toker
+     * Get the token
      *
-     * @param  
-     * @return string
+     * @return String
      */
     public function getToken()
     {
@@ -55,8 +52,9 @@ class Authorize extends AbstractApi{
     /**
      * Get Authorization Token with password method
      *
-     * @param  
-     * @return 
+     * @param string $username
+     * @param string $password
+     * @return mixed|string
      */
     public function createPasswordToken($username = '', $password = '')
     {        
@@ -65,24 +63,25 @@ class Authorize extends AbstractApi{
        return $this->token;
     }
 
-    /**
+    /*
      * Redirect to get Authorization Code
      *
      * @param  
      * @return 
-     */
+     *
     public function redirectToAuth($apiKey, $redirect_uri = '')
     {        
        $data = array('code' => $code, 'redirect_uri' => $redirect_uri);
        header('Location: https://authenticate.trustpilot.com?client_id='.$apiKey.'&redirect_uri='.urlencode($redirect_uri).'&response_type=code');
        exit;
-    }
+    }*/
 
     /**
      * Get Authorization Token with Authrorization Code
      *
-     * @param  
-     * @return 
+     * @param string $code
+     * @param string $redirect_uri
+     * @return mixed|String
      */
     public function createAuthToken($code = '', $redirect_uri = '')
     {        
@@ -94,8 +93,9 @@ class Authorize extends AbstractApi{
     /**
      * Get Authorization Token with authorization code
      *
-     * @param  
-     * @return 
+     * @param $type
+     * @param $data
+     * @return mixed
      */
     protected function createToken($type,$data)
     {
@@ -114,9 +114,6 @@ class Authorize extends AbstractApi{
 
     /**
      * Refresh the token
-     *
-     * @param 
-     * @return 
      */
     public function refreshToken()
     {
@@ -138,8 +135,7 @@ class Authorize extends AbstractApi{
     /**
      * Validate Token
      *
-     * @param  
-     * @return 
+     * @return bool
      */
     public function isRefreshedToken()
     {
@@ -154,8 +150,7 @@ class Authorize extends AbstractApi{
     /**
      * Check if the token is valid
      *
-     * @param  
-     * @return 
+     * @return bool
      */
     public function isValidToken()
     {

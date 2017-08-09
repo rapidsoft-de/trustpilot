@@ -15,6 +15,7 @@ namespace TrustPilot\Api;
  * @author Graphem Solutions <info@graphem.ca>
  */
 use TrustPilot\TrustPilot;
+use TrustPilot\Adapter\AdapterInterface;
 
 abstract class AbstractApi
 {
@@ -30,7 +31,7 @@ abstract class AbstractApi
     protected $return;
 
     /**
-     * @var string
+     * @var AdapterInterface
      */
     protected $api;
 
@@ -40,12 +41,10 @@ abstract class AbstractApi
     protected $client;
 
     /**
-     * Request data when doing create or update method
+     * AbstractApi constructor.
      *
-     * @var string
+     * @param TrustPilot $client
      */
-    
-
     public function __construct(TrustPilot $client)
     {
         $this->client = $client;

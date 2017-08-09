@@ -15,41 +15,33 @@ interface AdapterInterface
 {
     /**
      * @param string $url
-     *
-     * @throws HttpException
-     *
-     * @return string
+     * @param array $options
+     * @return mixed
      */
-    public function get($url);
+    public function get($url, $options = []);
 
     /**
      * @param string $url
-     *
-     * @throws HttpException
+     * @return mixed
      */
     public function delete($url);
 
     /**
-     * @param string       $url
-     * @param array|string $content
-     *
-     * @throws HttpException
-     *
-     * @return string
+     * @param string $url
+     * @param string $content
+     * @return mixed
      */
     public function put($url, $content = '');
     
     /**
-     * @param string       $url
-     * @param array|string $content
-     *
-     * @throws HttpException
-     *
-     * @return string
+     * @param string $url
+     * @param string $content
+     * @return mixed
      */
     public function post($url, $content = '');
+
     /**
-     * @return array|null
+     * @return string[]|null
      */
     public function getLatestResponseHeaders();
 }
