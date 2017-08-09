@@ -168,7 +168,21 @@ class BusinessUnit extends AbstractApi{
             $this->api->get('private/business-units/' . $businessUnitId . '/reviews',
                 ['query' => 
                     [
-                       'referenceId' => $data['referenceId'],
+                        'stars' => $data['stars'],
+                        'language' => $data['language'],
+                        'page' => $data['page'],
+                        'perPage' => $data['perPage'],
+                        'orderBy' => $data['orderBy'],
+                        'tagGroup' => $data['tagGroup'],
+                        'tagValue' => $data['tagValue'],
+                        'responded' => $data['responded'],
+                        'referenceId' => $data['referenceId'],
+                        'referralEmail' => $data['referralEmail'],
+                        'reported' => $data['responded'],
+                        'startDateTime' => $data['startDateTime'],
+                        'endDateTime' => $data['endDateTime'],
+                        'source' => $data['source'],
+                        'username' => $data['username']
                     ]
                 ]
             ));
