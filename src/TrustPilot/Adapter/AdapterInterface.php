@@ -15,12 +15,13 @@ interface AdapterInterface
 {
     /**
      * @param string $url
+     * @param array $options
      *
      * @throws HttpException
      *
      * @return string
      */
-    public function get($url);
+    public function get($url, $options = []);
 
     /**
      * @param string $url
