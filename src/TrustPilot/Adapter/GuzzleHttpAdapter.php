@@ -20,30 +20,29 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
 
-/**
- * @author Graphem Solutions <info@graphem.ca>
- */
-
 class GuzzleHttpAdapter implements AdapterInterface
 {
-    /**
-     * @var ClientInterface
+   /**
+     * @var Client|ClientInterface
      */
     protected $client;
 
     /**
-     * @var Response|ResponseInterface
+     * @var
      */
     protected $response;
 
     /**
-     * @var ClientInterface
+     * @var string
      */
     protected $endpoint;
 
     /**
-     * @param string               $token
-     * @param ClientInterface|null $client
+     * guzzle_http_adapter constructor.
+     *
+     * @param $headers
+     * @param string $endpoint
+     * @param ClientInterface|NULL $client
      */
     public function __construct($headers, $endpoint = '', ClientInterface $client = null)
     {
@@ -120,7 +119,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function getLatestResponseHeaders()
     {
         if (null === $this->response) {
-            return;
+            return NULL;
         }
 
         return [
@@ -135,7 +134,6 @@ class GuzzleHttpAdapter implements AdapterInterface
      */
     protected function handleError()
     {
-
         $body = (string) $this->response->getBody();
 
         $code = (int) $this->response->getStatusCode();

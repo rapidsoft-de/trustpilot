@@ -14,15 +14,15 @@ namespace TrustPilot\Api;
  * @author Graphem Solutions <info@graphem.ca>
  */
 
-use TrustPilot\TrustPilot;
-
 class BusinessUnit extends AbstractApi{
-  
+
     /**
      * Get a list of business units
      *
-     * @param  
-     * @return array
+     * @param string $country
+     * @param int $page
+     * @param int $perPage
+     * @return mixed
      */
     public function fetchAll($country = '', $page = 1, $perPage = 1000)
     {
@@ -59,8 +59,8 @@ class BusinessUnit extends AbstractApi{
     /**
      * Get a business unit
      *
-     * @param  
-     * @return array
+     * @param string $businessUnitId
+     * @return mixed
      */
     public function get($businessUnitId)
     {
@@ -71,8 +71,9 @@ class BusinessUnit extends AbstractApi{
     /**
      * Get a business unit's web links
      *
-     * @param  
-     * @return array
+     * @param string $businessUnitId
+     * @param string $locale
+     * @return mixed
      */
     public function getWebLink($businessUnitId, $locale = 'en-US')
     {
@@ -89,8 +90,9 @@ class BusinessUnit extends AbstractApi{
     /**
      * List categories for business unit
      *
-     * @param  
-     * @return array
+     * @param string $businessUnitId
+     * @param string $locale
+     * @return mixed
      */
     public function listCategories($businessUnitId, $locale = '')
     {
@@ -107,8 +109,10 @@ class BusinessUnit extends AbstractApi{
     /**
      * Search for business units
      *
-     * @param  
-     * @return array
+     * @param string $query
+     * @param int $page
+     * @param int $perPage
+     * @return mixed
      */
     public function search($query, $page = 1, $perPage = 20)
     {
@@ -127,8 +131,9 @@ class BusinessUnit extends AbstractApi{
     /**
      * Get a business unit's reviews
      *
-     * @param  string, array 
-     * @return array
+     * @param string $businessUnitId
+     * @param $data
+     * @return mixed
      */
     public function getReviews($businessUnitId, $data)
     {
@@ -153,8 +158,9 @@ class BusinessUnit extends AbstractApi{
     /**
      * Get a business unit's reviews
      *
-     * @param  string, array 
-     * @return array
+     * @param string $businessUnitId
+     * @param array $data
+     * @return \stdClass
      */
     public function getPrivateReviews($businessUnitId, $data)
     {
@@ -162,21 +168,7 @@ class BusinessUnit extends AbstractApi{
             $this->api->get('private/business-units/' . $businessUnitId . '/reviews',
                 ['query' => 
                     [
-                       'stars' => $data['stars'],
-                       'language' => $data['language'],
-                       'page' => $data['page'],
-                       'perPage' => $data['perPage'],
-                       'orderBy' => $data['orderBy'],
-                       'tagGroup' => $data['tagGroup'],
-                       'tagValue' => $data['tagValue'],
-                       'responded' => $data['responded'],
                        'referenceId' => $data['referenceId'],
-                       'referralEmail' => $data['referralEmail'],
-                       'reported' => $data['responded'],
-                       'startDateTime' => $data['startDateTime'],
-                       'endDateTime' => $data['endDateTime'],
-                       'source' => $data['source'],
-                       'username' => $data['username']
                     ]
                 ]
             ));
@@ -185,10 +177,10 @@ class BusinessUnit extends AbstractApi{
     /**
      * Get all business unit private tags
      *
-     * @param  
-     * @return array
+     * @param string $businessUnitId
+     * @return mixed
      */
-    public function getTags($businessUnitId, $locale = '')
+    public function getTags($businessUnitId)
     {
         return json_decode(
             $this->api->get('business-units/' . $businessUnitId . '/tags'));

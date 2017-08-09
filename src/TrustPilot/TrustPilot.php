@@ -12,7 +12,24 @@
 namespace TrustPilot;
 
 /**
- * @author Graphem Solutions <info@graphem.ca>
+ * Trustpilot API module
+ *
+ * This code is based on the Trustpilot API code provided by
+ * Graphem Solutions <info@graphem.ca>.
+ *
+ * @see https://packagist.org/packages/graphem/trustpilot
+ * @filesource https://github.com/graphem/trustpilot
+ *
+ * Sadly the base code had too many errors restricting a stable
+ * usage with all our needs, so a modified and optimized version
+ * was built.
+ * Some modules were not finished and still remain unimplemented yet.
+ * This API module work is still in progress and may be updated to future needs.
+ *
+ * @version    0.1
+ * @author     Graphem Solutions <info@graphem.ca>
+ * @author     Martin Sobotta <msobotta@rapidsoft.de>
+ * @copyright  2017 rapidsoft operating GmbH <http://www.rapidsoft.de>
  */
 
 use TrustPilot\Adapter\GuzzleHttpAdapter;
@@ -25,8 +42,7 @@ use TrustPilot\Api\BusinessUnit;
 use TrustPilot\Api\ProductReviews;
 use TrustPilot\Api\ServicesReviews;
 
-class TrustPilot
-{
+class TrustPilot {
     
     /**
      * @var string
@@ -38,28 +54,36 @@ class TrustPilot
      */
     protected $endpoint;
     /**
-     * @var String
+     * @var string
      */
     protected $secret;
 
     /**
-     * @var String
+     * @var string
      */
     protected $apiKey;
 
     /**
-     * @var String
+     * @var string
      */
     protected $adapter;
 
     /**
-     * @var String
+     * @var Object
      */
     protected $token;
 
+    /**
+     * @var Object
+     */
+    protected $client;
 
     /**
-     * @param AdapterInterface $adapter
+     * TrustPilot constructor.
+     *
+     * @param string $apiKey
+     * @param string $secret
+     * @param null|string $endpoint
      */
     public function __construct($apiKey, $secret, $endpoint = null)
     {          
@@ -71,21 +95,24 @@ class TrustPilot
     /**
      * Set the access token
      *
-     * @param  
-     * @return 
+     * @param object $token
      */
     public function setToken($token)
     {
         $this->token = $token;
         $auth = $this->authorize();
         $auth->setToken($this->token);
+
+        if($auth->isRefreshedToken()){
+            $this->token = $auth->getToken();
+        }
+
     }
 
     /**
-     * get the access token
+     * Set the access token
      *
-     * @param  
-     * @return 
+     * @return \stdClass
      */
     public function getToken()
     {
@@ -93,10 +120,11 @@ class TrustPilot
     }
 
     /**
-     * Initiate the client for API transation
+     * Initiate the client for API transaction
      *
-     * @param  
-     * @return 
+     * @param AdapterInterface|NULL $adapter
+     * @param array $headers
+     * @return TrustPilot
      */
     protected function setAdapter(AdapterInterface $adapter = null, $headers = [])
     {
@@ -105,42 +133,33 @@ class TrustPilot
             return $this;
         }
         $this->client = new $adapter($headers,$this->endpoint);
-        return $this;        
+        return $this;
     }
 
     /**
-     * Set adapter to use token from Oauth
-     *
-     * @param  
-     * @return 
+     * Set adapter to use token from oauth(2)
      */
     protected function setAdapterWithToken()
     {
         $headers = ['headers' => 
-                        ['Authorization' => 'Bearer '. $this->token->access_token]                    
+                        ['Authorization' => 'Bearer '. $this->token->access_token]
                    ];
         $this->setAdapter($this->adapter,$headers);
     }
 
     /**
      * Set adapter to use API key
-     *
-     * @param  
-     * @return 
      */
     protected function setAdapterWithApikey()
     {
         $headers = ['headers' => 
-                        ['apikey' => $this->apiKey]                    
+                        ['apikey' => $this->apiKey]
                    ];
         $this->setAdapter($this->adapter,$headers);
     }
 
     /**
      * Get the client
-     *
-     * @param  
-     * @return 
      */
     public function getClient()
     {
@@ -148,7 +167,7 @@ class TrustPilot
     }
 
     /**
-     * @return Authorize Api
+     * @return Authorize
      */
     public function authorize()
     {
@@ -160,16 +179,16 @@ class TrustPilot
     }
 
     /**
-     * @return Business Unit
+     * @return BusinessUnit
      */
     public function businessUnit()
     {
-        $this->setAdapterWithApikey();
+        $this->setAdapterWithToken();
         return new BusinessUnit($this);
     }
 
     /**
-     * @return Categories API
+     * @return Categories
      */
     public function categories()
     {
@@ -178,7 +197,7 @@ class TrustPilot
     }
 
     /**
-     * @return Consumer API
+     * @return Consumer
      */
     public function consumer()
     {
@@ -187,7 +206,7 @@ class TrustPilot
     }
 
     /**
-     * @return Resources API
+     * @return Resources
      */
     public function resources()
     {
@@ -206,7 +225,7 @@ class TrustPilot
     }
 
     /**
-     * @return Product Reviews API
+     * @return ProductReviews
      */
     public function productReviews()
     {
@@ -215,7 +234,7 @@ class TrustPilot
     }
 
     /**
-     * @return Service Reviews API
+     * @return ServiceReviews
      */
     public function serviceReviews()
     {
