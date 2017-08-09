@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f83e05a-6413-4c1f-8269-14d5b6fb3e8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TrustPilot/Adapter/AdapterInterface.php" afterPath="$PROJECT_DIR$/src/TrustPilot/Adapter/AdapterInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TrustPilot/TrustPilot.php" afterPath="$PROJECT_DIR$/src/TrustPilot/TrustPilot.php" />
-    </list>
+    <list default="true" id="5f83e05a-6413-4c1f-8269-14d5b6fb3e8c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +14,8 @@
       <file leaf-file-name="TrustPilot.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/TrustPilot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="211" column="5" lean-forward="true" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+            <state relative-caret-position="3">
+              <caret line="183" column="32" lean-forward="false" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="32" />
               <folding>
                 <element signature="e#1009#1050#0#PHP" expanded="true" />
               </folding>
@@ -37,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdapterInterface.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdapterInterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/Adapter/AdapterInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+            <state relative-caret-position="425">
+              <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -79,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BusinessUnit.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BusinessUnit.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="496">
+              <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -92,8 +88,8 @@
       <file leaf-file-name="Invitation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Invitation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+            <state relative-caret-position="663">
+              <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -124,8 +120,8 @@
       <file leaf-file-name="Authorize.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Authorize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state relative-caret-position="510">
+              <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -260,12 +256,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502283400304</updated>
-      <workItem from="1502283401555" duration="3821000" />
+      <workItem from="1502283401555" duration="5815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3821000" />
+    <option name="totallyTimeSpent" value="5815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -333,22 +329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Invitation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/AbstractApi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -369,14 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Authorize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -385,20 +357,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Adapter/AdapterInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Authorize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/Invitation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrustPilot/TrustPilot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="211" column="5" lean-forward="true" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+        <state relative-caret-position="3">
+          <caret line="183" column="32" lean-forward="false" selection-start-line="183" selection-start-column="20" selection-end-line="183" selection-end-column="32" />
           <folding>
             <element signature="e#1009#1050#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Adapter/AdapterInterface.php">
+    <entry file="file://$PROJECT_DIR$/src/TrustPilot/Api/BusinessUnit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        <state relative-caret-position="496">
+          <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
           <folding />
         </state>
       </provider>
