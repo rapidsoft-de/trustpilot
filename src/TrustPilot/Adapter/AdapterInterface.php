@@ -16,7 +16,10 @@ interface AdapterInterface
     /**
      * @param string $url
      * @param array $options
-     * @return mixed
+     *
+     * @throws HttpException
+     *
+     * @return string
      */
     public function get($url, $options = []);
 
