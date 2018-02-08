@@ -32,6 +32,7 @@ namespace TrustPilot;
  * @copyright  2017 rapidsoft operating GmbH <http://www.rapidsoft.de>
  */
 
+use TrustPilot\Adapter\AdapterInterface;
 use TrustPilot\Adapter\GuzzleHttpAdapter;
 use TrustPilot\Api\Authorize;
 use TrustPilot\Api\Categories;
@@ -40,10 +41,10 @@ use TrustPilot\Api\Invitation;
 use TrustPilot\Api\Resources;
 use TrustPilot\Api\BusinessUnit;
 use TrustPilot\Api\ProductReviews;
-use TrustPilot\Api\ServicesReviews;
+use TrustPilot\Api\ServiceReviews;
 
-class TrustPilot {
-    
+class TrustPilot
+{
     /**
      * @var string
      */
@@ -74,7 +75,7 @@ class TrustPilot {
     protected $token;
 
     /**
-     * @var Object
+     * @var AdapterInterface
      */
     protected $client;
 
@@ -86,7 +87,7 @@ class TrustPilot {
      * @param null|string $endpoint
      */
     public function __construct($apiKey, $secret, $endpoint = null)
-    {          
+    {
         $this->apiKey = $apiKey;
         $this->secret = $secret;
         $this->endpoint = $endpoint ?: static::ENDPOINT;
@@ -110,7 +111,7 @@ class TrustPilot {
     }
 
     /**
-     * Set the access token
+     * Get the access token
      *
      * @return \stdClass
      */
@@ -141,7 +142,7 @@ class TrustPilot {
      */
     protected function setAdapterWithToken()
     {
-        $headers = ['headers' => 
+        $headers = ['headers' =>
                         ['Authorization' => 'Bearer '. $this->token->access_token]
                    ];
         $this->setAdapter($this->adapter,$headers);
@@ -152,7 +153,7 @@ class TrustPilot {
      */
     protected function setAdapterWithApikey()
     {
-        $headers = ['headers' => 
+        $headers = ['headers' =>
                         ['apikey' => $this->apiKey]
                    ];
         $this->setAdapter($this->adapter,$headers);
@@ -160,6 +161,8 @@ class TrustPilot {
 
     /**
      * Get the client
+     *
+     * @return AdapterInterface
      */
     public function getClient()
     {
@@ -171,8 +174,8 @@ class TrustPilot {
      */
     public function authorize()
     {
-        $headers = ['headers' => 
-                        ['Authorization' => base64_encode($this->apiKey . ':' . $this->secret) ]                    
+        $headers = ['headers' =>
+                        ['Authorization' => base64_encode($this->apiKey . ':' . $this->secret) ]
                    ];
         $this->setAdapter($this->adapter,$headers);
         return new Authorize($this);
@@ -211,7 +214,7 @@ class TrustPilot {
     public function resources()
     {
         $this->setAdapterWithApikey();
-        return new Consumer($this);
+        return new Resources($this);
     }
 
     /**

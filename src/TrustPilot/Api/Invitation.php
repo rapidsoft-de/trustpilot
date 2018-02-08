@@ -17,7 +17,7 @@ namespace TrustPilot\Api;
 use Carbon\Carbon;
 
 class Invitation extends AbstractApi{
-  
+
 
     /**
      * This API endpoint triggers an email invitation. Use the redirect parameter
@@ -26,11 +26,11 @@ class Invitation extends AbstractApi{
      *
      * @param string $businessUnitId
      * @param array $data
-     * @return mixed
+     * @return \stdClass
      */
     public function createInvitation($businessUnitId, $data)
     {
-        $data['locale'] = isset($data['local']) ?: 'en-US' ;
+        $data['locale'] = isset($data['locale']) ? $data['locale'] : 'en-US';
         $data['preferredSendTime'] = isset($data['preferredSendTime']) ? Carbon::parse($data['preferredSendTime'])->toAtomString() : '' ;
 
         return json_decode(
@@ -43,7 +43,7 @@ class Invitation extends AbstractApi{
      * Includes both standard and custom templates.
      *
      * @param string $businessUnitId
-     * @return mixed
+     * @return \stdClass
      */
     public function getInvitationTemplates($businessUnitId)
     {
@@ -57,19 +57,19 @@ class Invitation extends AbstractApi{
      * @param string $businessUnitId
      * @param string $templateId
      * @param array $data
-     * @return mixed
+     * @return \stdClass
      */
     public function renderPreview($businessUnitId, $templateId, $data)
     {
         return json_decode(
             $this->api->get('private/business-units/'.$businessUnitId.'/templates/custom/'.$templateId.'/preview',
-                ['query' => 
+                ['query' =>
                     [
-                       'customerName' => $data['customerName'], 
-                       'customerEmail' => $data['customerEmail'], 
-                       'tld' => $data['tld'], 
-                       'domainName' => $data['domainName'], 
-                       'language' => $data['language'], 
+                       'customerName' => $data['customerName'],
+                       'customerEmail' => $data['customerEmail'],
+                       'tld' => $data['tld'],
+                       'domainName' => $data['domainName'],
+                       'language' => $data['language'],
                        'orderref' => $data['orderref']
                     ]
                 ]
@@ -88,9 +88,9 @@ class Invitation extends AbstractApi{
      */
     public function generateInvitationLink($businessUnitId, $data)
     {
-        $data['locale'] = isset($data['local']) ?: 'en-US' ;
+        $data['locale'] = isset($data['locale']) ? $data['locale'] : 'en-US';
         $response = json_decode(
             $this->api->post('private/business-units/'. $businessUnitId .'/invitation-links', array('json' => $data)));
-        return $response->url;  
+        return $response->url;
     }
 }
