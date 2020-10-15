@@ -17,8 +17,6 @@ use TrustPilot\Exception\HttpException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Message\ResponseInterface;
-use GuzzleHttp\Psr7\Response;
 
 class GuzzleHttpAdapter implements AdapterInterface
 {
@@ -40,11 +38,11 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * guzzle_http_adapter constructor.
      *
-     * @param $headers
+     * @param array $headers
      * @param string $endpoint
      * @param ClientInterface|NULL $client
      */
-    public function __construct($headers, $endpoint = '', ClientInterface $client = null)
+    public function __construct(array $headers, string $endpoint = '', ?ClientInterface $client = null)
     {
 
         $this->endpoint = $endpoint;
@@ -55,11 +53,13 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function get($url, $options = array())
+    public function get(string $url, array $options = [])
     {
         try {
-            $this->response = $this->client->get($this->endpoint.$url,$options);
-
+            $this->response = $this->client->get(
+                $this->endpoint . $url,
+                $options
+            );
         } catch (RequestException $e) {
             $this->response = $e->getResponse();
             $this->handleError();
@@ -71,40 +71,13 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function delete($url)
+    public function post(string $url, array $content = [])
     {
         try {
-            $this->response = $this->client->delete($this->endpoint.$url);
-        } catch (RequestException $e) {
-            $this->response = $e->getResponse();
-            $this->handleError();
-        }
-
-        return $this->response->getBody();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function put($url, $content = '')
-    {
-        try {
-            $this->response = $this->client->put($this->endpoint.$url, $content);
-        } catch (RequestException $e) {
-            $this->response = $e->getResponse();
-            $this->handleError();
-        }
-
-        return $this->response->getBody();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function post($url, $content = '')
-    {
-        try {
-            $this->response = $this->client->post($this->endpoint.$url, $content);
+            $this->response = $this->client->post(
+                $this->endpoint . $url,
+                $content
+            );
         } catch (RequestException $e) {
             $this->response = $e->getResponse();
             $this->handleError();

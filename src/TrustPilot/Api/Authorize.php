@@ -106,9 +106,9 @@ class Authorize extends AbstractApi{
 
         return $response = json_decode($this->api->post(
             'oauth/oauth-business-users-for-applications/accesstoken',
-            array(
+            [
                 'form_params' => $fullBody
-            )
+            ]
         ));
     }
 

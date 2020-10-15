@@ -17,31 +17,16 @@ interface AdapterInterface
      * @param string $url
      * @param array $options
      *
-     * @throws HttpException
-     *
      * @return string
      */
-    public function get($url, $options = []);
-
-    /**
-     * @param string $url
-     * @return mixed
-     */
-    public function delete($url);
+    public function get(string $url, array $options = []);
 
     /**
      * @param string $url
      * @param string $content
      * @return mixed
      */
-    public function put($url, $content = '');
-    
-    /**
-     * @param string $url
-     * @param string $content
-     * @return mixed
-     */
-    public function post($url, $content = '');
+    public function post(string $url, array $content = []);
 
     /**
      * @return string[]|null
